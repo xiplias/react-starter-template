@@ -21,7 +21,12 @@ if gulp.env.production  # i.e. we were executed with a --production option
 sassConfig = { includePaths : ['src/styles'] }
 httpPort = 4000
 # paths to files in bower_components that should be copied to dist/assets/vendor
-vendorPaths = ['es5-shim/es5-sham.js', 'es5-shim/es5-shim.js', 'bootstrap/dist/css/bootstrap.css']
+vendorPaths = [
+  'es5-shim/es5-sham.js',
+  'es5-shim/es5-shim.js',
+  'bootstrap/dist/css/bootstrap.css',
+  'bootstrap/dist/css/bootstrap.css.map'
+]
 
 #
 # TASKS
@@ -99,6 +104,3 @@ execWebpack = (config) ->
   webpack config, (err, stats) ->
     if (err) then throw new gutil.PluginError("execWebpack", err)
     gutil.log("[execWebpack]", stats.toString({colors: true}))
-
-
-
